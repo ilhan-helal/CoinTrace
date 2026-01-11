@@ -1,0 +1,229 @@
+/* 🌈 Universal Page Wrapper */
+.portfolio-page {
+  background: linear-gradient(to bottom right, #1a1a1a, #2f0059, #8a0066);
+  min-height: 100vh;
+  color: white;
+  font-family: sans-serif;
+}
+
+/* ------------------------------
+   🎯 HERO SECTION
+--------------------------------*/
+.portfolio-hero {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.portfolio-hero-bg::before,
+.portfolio-hero-bg::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  animation: floatAnimation 7s infinite ease-in-out alternate;
+}
+
+.portfolio-hero-bg::before {
+  background: #ff0095;
+  top: 10%;
+  left: -5%;
+}
+
+.portfolio-hero-bg::after {
+  background: #7d31ff;
+  bottom: 10%;
+  right: -10%;
+}
+
+@keyframes floatAnimation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-30px);
+  }
+}
+
+/* ------------------------------
+   HERO TEXT CONTENT
+--------------------------------*/
+.portfolio-hero-content {
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.portfolio-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(255, 0, 150, 0.4);
+}
+
+.portfolio-subtitle {
+  color: #d3c9e8;
+  margin: 1rem 0 2rem;
+  font-size: 1.2rem;
+}
+
+.portfolio-upgrade-btn {
+  background: linear-gradient(to right, #ff0ea8, #9b00ff);
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(255, 0, 160, 0.4);
+}
+
+.portfolio-upgrade-btn:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 0 30px rgba(255, 0, 160, 0.6);
+}
+
+/* ------------------------------
+   HERO IMAGE PART
+--------------------------------*/
+.portfolio-hero-image {
+  position: relative;
+  max-width: 400px;
+  margin-left: 2rem;
+}
+
+.portfolio-hero-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 0, 180, 0.4);
+  animation: popIn 1.2s ease forwards;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.floating-chart {
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  width: 55%;
+  border-radius: 20px;
+  animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ------------------------------
+   FEATURES SECTION
+--------------------------------*/
+.portfolio-features {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(255, 0, 200, 0.4);
+}
+
+.features-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ------------------------------
+   DEMO IMAGE
+--------------------------------*/
+.portfolio-demo-image img {
+  width: 100%;
+  max-width: 700px;
+  margin: 3rem auto;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(150, 0, 255, 0.4);
+  animation: fadeIn 1.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------
+   CTA BUTTON
+--------------------------------*/
+.portfolio-premium-cta {
+  background: linear-gradient(to right, #ff0ea8, #9b00ff);
+  padding: 1rem 2.5rem;
+  border-radius: 16px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-top: 1rem;
+  transition: 0.3s;
+  box-shadow: 0 0 25px rgba(240, 0, 255, 0.4);
+}
+
+.portfolio-premium-cta:hover {
+  transform: scale(1.05) translateY(-4px);
+  box-shadow: 0 0 35px rgba(240, 0, 255, 0.6);
+}
+
+/* ------------------------------
+   RESPONSIVE
+--------------------------------*/
+@media (max-width: 768px) {
+  .portfolio-title {
+    font-size: 2.2rem;
+  }
+
+  .portfolio-upgrade-btn {
+    margin-top: 1rem;
+  }
+
+  .portfolio-hero {
+    text-align: center;
+  }
+
+  .portfolio-hero-image {
+    margin: 2rem auto 0;
+  }
+}

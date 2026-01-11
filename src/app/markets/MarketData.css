@@ -1,0 +1,432 @@
+/* Enhanced MarketData.css */
+.market-data-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.market-stats {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 8px 32px rgba(108, 58, 156, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.stat-value {
+  display: flex;         /* Value aur % ko side-by-side rakhega */
+  align-items: center;   /* Vertically center karega */
+  gap: 10px;             /* Number aur % ke beech space */
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(168, 85, 247, 0.3);
+}
+
+
+.market-stats:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.3);
+  border-color: rgba(236, 72, 153, 0.5);
+}
+
+.market-stat {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.market-stat:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.market-stat:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.market-stat .stat-label {
+  font-size: 18px;
+  color: #d8b4fe;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.market-stat .stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 4px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(168, 85, 247, 0.3);
+}
+
+.stat-change {
+  font-size: 14px; /* Increased from 14px */
+  margin-left: 10px;
+  padding: 6px 18px; /* Increased padding for better appearance */
+  border-radius: 18px;
+  font-weight: 650; /* Bolder font */
+  animation: pulse 2s infinite;
+  color: rgb(255, 255, 255); /* Ensure white text */
+  text-shadow: 1px 0px 0px rgb(255, 255, 255); /* Add text shadow for better contrast */
+}
+
+.stat-change.up {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); /* Darker green */
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.stat-change.down {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); /* Darker red */
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.market-sections {
+  grid-column: span 2;
+  display: flex;
+  gap: 24px;
+}
+
+.market-section {
+  flex: 1;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 8px 32px rgba(108, 58, 156, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.market-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.3);
+  border-color: rgba(236, 72, 153, 0.5);
+}
+
+.market-section h2 {
+  color: #f0abfc;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+  padding-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(168, 85, 247, 0.4);
+}
+
+.coins-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.coin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  transition: all 0.3s ease;
+  animation: slideInRight 0.5s ease-out;
+}
+
+.coin-item:hover {
+  background: rgba(168, 85, 247, 0.1);
+  transform: translateX(4px);
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.2);
+}
+
+.coin-item:nth-child(1) { animation-delay: 0.1s; }
+.coin-item:nth-child(2) { animation-delay: 0.2s; }
+.coin-item:nth-child(3) { animation-delay: 0.3s; }
+
+.coin-name {
+  color: #e9d5ff;
+  font-weight: 500;
+  flex: 1;
+}
+
+.coin-price {
+  display: flex;          /* row layout */
+  align-items: center;    /* vertical center */
+  gap: 8px;               /* space between price and % */
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.price-value {
+  color: #a5b4fc;
+  background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.price-change {
+  font-size: 12px; /* Increased from 13px */
+  font-weight: 500; /* Bolder font */
+  padding: 3px 8px; /* Slightly larger padding */
+  border-radius: 12px;
+  margin-left: 8px;
+  animation: bounce 1s infinite alternate;
+  color: rgb(255, 255, 255); /* Ensure white text */
+  text-shadow: 2px 3px px rgb(255, 255, 255); /* Add text shadow for better contrast */
+}
+
+.price-change.up {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); /* Darker green */
+  box-shadow: 0 3px 10px rgba(34, 197, 94, 0.3);
+}
+
+.price-change.down {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); /* Darker red */
+  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.3);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Responsive Design */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .market-data-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .market-sections {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+  
+  .market-stats {
+    grid-column: span 1;
+  }
+}
+
+/* Tablets & phablets */
+@media (max-width: 768px) {
+  .market-data-container {
+    gap: 16px;
+  }
+  
+  .market-stat .stat-value {
+    font-size: 20px;
+  }
+  
+  .market-section h2 {
+    font-size: 18px;
+  }
+  
+  .coin-item {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .coin-price {
+    font-size: 14px;
+  }
+}
+
+/* Small phones (<= 480px) */
+@media (max-width: 480px) {
+  .market-data-container {
+    padding: 0 8px;
+    gap: 12px;
+  }
+
+  .market-stat .stat-value {
+    font-size: 18px;
+  }
+
+  .market-section h2 {
+    font-size: 16px;
+  }
+
+  .coin-item {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .coin-price {
+    font-size: 13px;
+  }
+
+  /* Hide extra columns if table-like structure */
+  .coin-item .extra-col {
+    display: none;
+  }
+}
+
+/* Very small phones (<= 375px like iPhone SE) */
+@media (max-width: 375px) {
+  .market-stat .stat-value {
+    font-size: 16px;
+  }
+
+  .market-section h2 {
+    font-size: 15px;
+  }
+
+  .coin-item {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .coin-price {
+    font-size: 12px;
+  }
+}
+/* Super small devices fix (<= 422px) */
+@media (max-width: 422px) {
+  .market-data-container {
+    padding: 0 6px; /* thoda andar le aao */
+    gap: 10px;
+  }
+
+  .market-section,
+  .market-stats {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .market-stat .stat-value {
+    font-size: 14px; /* aur compact */
+    word-wrap: break-word; /* number break ho jaye line me */
+  }
+
+  .market-section h2 {
+    font-size: 14px;
+  }
+
+  .coin-item {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .coin-price {
+    font-size: 12px;
+  }
+
+  /* Prevent overflow in big numbers like market cap */
+  .market-stat {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 350px) {
+  .market-data-container {
+    padding: 0 4px;
+    gap: 8px;
+  }
+
+  .market-section,
+  .market-stats {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .market-stat .stat-value {
+    font-size: 12px;
+    word-wrap: break-word;
+  }
+
+  .market-section h2 {
+    font-size: 12px;
+  }
+
+  .coin-item {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  .coin-price {
+    font-size: 11px;
+  }
+}
+/* Hide % change below 420px and squeeze spacing */
+@media (max-width: 420px) {
+  /* Market Cap percentage (stat-change) hide */
+  .stat-change {
+    display: none !important;
+  }
+
+  /* Top Gainers percentage (price-change) hide */
+  .price-change {
+    display: none !important;
+  }
+
+  /* Squeeze name and price gap */
+  .coin-price {
+    gap: 4px;   /* default 8px se chhota */
+  }
+}
