@@ -42,7 +42,7 @@ export function FAQ() {
   };
 
   return (
-    <section className="py-20 px-4 relative">
+    <section className="py-16 md:py-20 px-4 relative">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-pink-600 rounded-full blur-3xl"></div>
@@ -75,7 +75,7 @@ export function FAQ() {
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none"
               >
-                <span className="text-lg md:text-xl font-semibold text-white pr-4">
+                <span className="text-base sm:text-lg md:text-xl font-semibold text-white pr-4">
                   {faq.question}
                 </span>
                 <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">

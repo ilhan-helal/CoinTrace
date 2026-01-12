@@ -139,6 +139,9 @@
   padding-left: 24px;
   padding-right: 24px;
 }
+html, body {
+  overflow-x: hidden;
+}
 
 
 

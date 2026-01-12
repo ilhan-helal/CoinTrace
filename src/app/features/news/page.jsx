@@ -1,4 +1,7 @@
 // src/app/feature/news/page.jsx
+
+export const dynamic = 'force-dynamic';
+
 import "./news.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -9,17 +12,23 @@ export const metadata = {
     "Latest cryptocurrency and blockchain news updated in real-time.",
 };
 
-export default async function page() {
+export default async function Page() {
   const API_KEY = process.env.NEWS_API_KEY;
-
-  // ---- SERVER-SIDE FETCH ----
   let articles = [];
 
   try {
+    if (!API_KEY) {
+      throw new Error("NEWS_API_KEY is missing");
+    }
+
     const res = await fetch(
-      `https://gnews.io/api/v4/search?q=crypto&lang=en&country=us&max=10&apikey=b8232ff26d5094e1ccb9221c8c279d11`,
+      `https://gnews.io/api/v4/search?q=crypto&lang=en&country=us&max=10&apikey=${API_KEY}`,
       { cache: "no-store" }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch news");
+    }
 
     const data = await res.json();
     articles = data.articles || [];
@@ -31,7 +40,6 @@ export default async function page() {
     <div className="news-page">
       <Header hideCurrency={true} />
 
-      {/* HERO SECTION */}
       <section className="news-hero">
         <h1 className="news-title">Latest Crypto Market News</h1>
         <p className="news-subtitle">
@@ -40,7 +48,6 @@ export default async function page() {
         </p>
       </section>
 
-      {/* NEWS GRID */}
       <section className="news-grid-section">
         {articles.length === 0 && (
           <div className="news-error">
@@ -51,7 +58,6 @@ export default async function page() {
         <div className="news-grid">
           {articles.map((article, i) => (
             <div className="news-card" key={i}>
-              {/* IMAGE */}
               {article.image ? (
                 <img
                   src={article.image}
@@ -69,21 +75,12 @@ export default async function page() {
                 </span>
               </div>
 
-              {/* CONTENT */}
               <div className="news-content">
                 <h3 className="news-card-title">{article.title}</h3>
                 <p className="news-desc">
                   {article.description || "No description available."}
                 </p>
 
-                <div className="news-meta">
-                  <span>📰 {article.source?.name || "Unknown Source"}</span>
-                  <span>
-                    ⏱ {new Date(article.publishedAt).toLocaleDateString()}
-                  </span>
-                </div>
-
-                {/* BUTTON */}
                 <a
                   href={article.url}
                   target="_blank"

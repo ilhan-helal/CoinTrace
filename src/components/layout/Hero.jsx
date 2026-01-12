@@ -29,7 +29,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 mb-12">
           {/* LEFT CONTENT */}
           <div className="text-center lg:text-left max-w-2xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
               Track Your <br />
               <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
                 <Typewriter
@@ -45,14 +45,14 @@ export function Hero() {
               <br /> in Real-Time
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 md:mb-12 leading-relaxed">
               Advanced portfolio analytics, real-time market data, and
               professional trading insights - all wrapped in a beautiful,
               intuitive interface.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-stretch sm:items-center mb-12 md:mb-16">
               <SignedOut>
                 <SignUpButton mode="modal">
                   <button className="px-10 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl text-lg font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-pink-500/30">
@@ -63,7 +63,7 @@ export function Hero() {
 
               {/* ---------- SIGNED IN (Show Welcome) ---------- */}
               <SignedIn>
-                 <WelcomeUser />
+                <WelcomeUser />
               </SignedIn>
               <button className="px-10 py-4 border-2 border-pink-400/50 text-white rounded-xl text-lg font-semibold hover:bg-pink-900/30 transition-all duration-300 transform hover:scale-105">
                 📊 Live Demo
@@ -71,17 +71,16 @@ export function Hero() {
             </div>
           </div>
           {/* RIGHT IMAGE */}
-          <div className="flex flex-col justify-center lg:justify-end gap-1 ml-auto">
+          <div className="flex flex-col justify-center lg:justify-end gap-3 sm:gap-4 mt-2 sm:mt-4 lg:mt-0 ml-0 lg:ml-auto">
             <img
               src="./ctim2.jpg"
-              
               alt="Crypto Illustration 1"
-              className="max-w-md lg:max-w-lg w-full rounded-2xl shadow-2xl"
+              className="max-w-sm sm:max-w-md lg:max-w-lg w-full rounded-2xl shadow-2xl mx-auto"
             />
             <img
-              src="./ctim.jpg" 
+              src="./ctim.jpg"
               alt="Crypto Illustration 2"
-              className="max-w-md lg:max-w-lg w-full rounded-2xl shadow-2xl"
+              className="max-w-sm sm:max-w-md lg:max-w-lg w-full rounded-2xl shadow-2xl mx-auto"
             />
           </div>
         </div>
@@ -91,13 +90,13 @@ export function Hero() {
         <FAQ />
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 text-center">
+        <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-12 text-center">
           {[
             { number: "5K+", label: "Active Users" },
-            { number: "500+", label: "Cryptocurrencies" },
+            { number: "500+", label: "Crypto Currencies" },
             { number: "24/7", label: "Real-time Data" },
           ].map((stat, index) => (
-            <div key={index} className="p-4">
+            <div key={index} className="p-2 sm:p-4">
               <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
                 {stat.number}
               </div>

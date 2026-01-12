@@ -1,5 +1,7 @@
 "use client";
 import "./PricingCard.css";
+import { SignUpButton, SignedOut, SignedIn } from "@clerk/nextjs";
+
 
 export default function PricingCard({
   title,
@@ -8,7 +10,8 @@ export default function PricingCard({
   features,
   button,
   highlight,
-  isAnnual
+  isAnnual,
+   onComingSoon
 }) {
   return (
     <div className={`pricing-card ${highlight ? "highlight" : ""}`}>
@@ -39,10 +42,49 @@ export default function PricingCard({
         ))}
       </ul>
 
-      <button className={`card-button ${highlight ? "btn-highlight" : "btn-default"}`}>
-        {button}
-        <span className="button-glow"></span>
+     {/* FREE PLAN */}
+{title === "Free" && (
+  <>
+    <SignedOut>
+      <SignUpButton mode="modal">
+        <button className="card-button btn-default">
+          Get Started
+          <span className="button-glow"></span>
+        </button>
+      </SignUpButton>
+    </SignedOut>
+
+    <SignedIn>
+      <button className="card-button btn-disabled" disabled>
+        ✓ Current Plan
       </button>
+    </SignedIn>
+  </>
+)}
+
+{/* PREMIUM & PRO */}
+{title !== "Free" && (
+  <button
+  disabled={title === "Pro"}
+  onClick={() => {
+    if (title !== "Pro" && onComingSoon) {
+      onComingSoon(title);
+    }
+  }}
+  className={`card-button ${
+    title === "Pro"
+      ? "btn-disabled"
+      : highlight
+      ? "btn-highlight"
+      : "btn-default"
+  }`}
+>
+  {title === "Pro" ? "Coming Soon" : button}
+  <span className="button-glow"></span>
+</button>
+
+)}
+
 
       {/* Animated background elements */}
       <div className="card-bg-elements">

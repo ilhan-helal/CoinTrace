@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { SignUpButton, SignedOut, SignedIn } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 
+
 function WelcomeUser() {
   const { user } = useUser();
   return (
@@ -17,7 +18,21 @@ function WelcomeUser() {
 }
 
 export default function PricingPage() {
+  
   const [isAnnual, setIsAnnual] = useState(false);
+  const [infoMessage, setInfoMessage] = useState("");
+   const handleComingSoon = (plan) => {
+  setInfoMessage(
+    `🧪 ${plan} Plan – Beta Access\n\n` +
+    `This plan is currently in testing and available only to selected beta users.\n` +
+    `We are polishing payments, stability, and advanced features before public release.\n\n` +
+    `🚀 Full rollout coming very soon!`
+  );
+
+  // Auto-hide after 5 seconds
+  setTimeout(() => setInfoMessage(""), 5000);
+};
+
 
   const pricingPlans = [
     {
@@ -72,7 +87,7 @@ export default function PricingPage() {
         "Advanced charting tools",
         "Whitelabel options"
       ],
-      button: "Go Pro",
+      button: "Coming Soon",
       highlight: false
     }
   ];
@@ -80,6 +95,16 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900 text-white font-sans selection:bg-pink-500 selection:text-white overflow-hidden">
       <Header hideCurrency={true} />
+      {infoMessage && (
+  <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50">
+    <div className="bg-black/80 backdrop-blur-lg border border-pink-500/40 text-white px-6 py-4 rounded-xl shadow-2xl max-w-md text-center animate-fade-in">
+      <p className="text-sm leading-relaxed whitespace-pre-line">
+        {infoMessage}
+      </p>
+    </div>
+  </div>
+)}
+
 
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -124,10 +149,12 @@ export default function PricingPage() {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <PricingCard
-                {...plan}
-                price={isAnnual ? plan.annualPrice : plan.monthlyPrice}
-                isAnnual={isAnnual}
-              />
+  {...plan}
+  price={isAnnual ? plan.annualPrice : plan.monthlyPrice}
+  isAnnual={isAnnual}
+  onComingSoon={handleComingSoon}
+/>
+
             </div>
           ))}
         </div>

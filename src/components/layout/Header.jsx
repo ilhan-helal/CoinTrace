@@ -232,7 +232,7 @@ export function Header({ hideCurrency = false }) {
                   onClick={() => setMenuOpen(false)}
                   className="block text-gray-400 hover:text-pink-400 transition-colors duration-300 py-2"
                 >
-                  Price Alerts
+                 News
                 </Link>
                 <Link
                   href="/features/converter"

@@ -153,7 +153,7 @@ function Toptracker() {
 
   if (loading) {
     return (
-      <div className="bg-black/40 rounded-2xl p-8 border border-purple-500/30">
+      <div className="bg-black/40 rounded-2xl p-4 sm:p-6 md:p-8 border border-purple-500/30">
         <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
           📈 Trending Coins
         </h3>
@@ -163,7 +163,7 @@ function Toptracker() {
   }
 
   return (
-    <div className="bg-black/40 rounded-2xl p-8 border border-purple-500/30">
+    <div className="bg-black/40 rounded-2xl p-2 sm:p-6 md:p-8 border border-purple-500/30">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
           📈 Trending Coins
@@ -185,7 +185,7 @@ function Toptracker() {
             return (
               <CarouselItem
                 key={coin.id || i}
-                className="md:basis-1/2 lg:basis-1/3"
+                className="basis-full sm:basis-1/2 lg:basis-1/3"
               >
                 <div className="p-2">
                     <a href={`/coin/${coin.id}?currency=${currency}`} className="block hover:opacity-90 transition">
