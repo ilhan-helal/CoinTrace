@@ -65,9 +65,15 @@ export function Hero() {
               <SignedIn>
                 <WelcomeUser />
               </SignedIn>
-              <button className="px-10 py-4 border-2 border-pink-400/50 text-white rounded-xl text-lg font-semibold hover:bg-pink-900/30 transition-all duration-300 transform hover:scale-105">
-                📊 Live Demo
-              </button>
+              <a
+                href="https://youtu.be/u-Gf3e8MmYs?si=K8I_fPoLqdrCwUjA"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="px-10 py-4 border-2 border-pink-400/50 text-white rounded-xl text-lg font-semibold hover:bg-pink-900/30 transition-all duration-300 transform hover:scale-105">
+                  📊 Live Demo
+                </button>
+              </a>
             </div>
           </div>
           {/* RIGHT IMAGE */}
@@ -92,7 +98,7 @@ export function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-12 text-center">
           {[
-            { number: "5K+", label: "Active Users" },
+            { number: "1K+", label: "Active Users" },
             { number: "500+", label: "Crypto Currencies" },
             { number: "24/7", label: "Real-time Data" },
           ].map((stat, index) => (
